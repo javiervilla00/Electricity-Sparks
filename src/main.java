@@ -15,16 +15,6 @@ public class main {
         freelance.setEmail("email@email.es");
         freelance.setPhoneNumber("600000000");
 
-        System.out.println("Client code: " ); int  ClientCode = sc.nextInt();
-        System.out.println("Name: " ); String  Name = sc.nextLine();
-        System.out.println("Surname: " ); String  Surname = sc.nextLine();
-        System.out.println("Poblation: " ); String  Poblation = sc.nextLine();
-        System.out.println("Province: " ); String  Province = sc.nextLine();
-        System.out.println("Adress: " ); String  Adress = sc.nextLine();
-        System.out.println("Dni: " ); String  Dni = sc.nextLine();
-        System.out.println("Email: "); String Email = sc.nextLine();
-        System.out.println("Phone number: "); Long PhoneNumber = sc.nextLong();
-
 
         Societies societies = new Societies();
         societies.setClientCode(1);
@@ -32,7 +22,7 @@ public class main {
         societies.setPoblation("Avila");
         societies.setProvince("Avila");
         societies.setAdress("Dir Avila");
-        societies.setCif("00000000A");
+        societies.setCif("B00000000");
         societies.setEmail("email@email.es");
         societies.setPhoneNumber("70000000");
 
@@ -53,5 +43,16 @@ public class main {
         services.setIvaType("10");
 
 
+        Invoice invoice = new Invoice();
+        invoice.setInvoiceCode(1);
+        invoice.setInvoiceDate("25/11/2022");
+        invoice.setClient(freelance);
+        invoice.addProducts(products);
+        invoice.addServices(services);
+        invoice.setTotal(185);
+        invoice.setTaxBase(210);
+
+        InvoicePrinter invoicePrinter = new InvoicePrinter();
+        invoicePrinter.PrintInvoice(invoice);
     }
 }
